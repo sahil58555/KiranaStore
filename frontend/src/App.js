@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
+const domain = "https://kirana-store.onrender.com";
+
 function App() {
   const [transactions, setTransactions] = useState([]);
   const [formData, setFormData] = useState({
@@ -19,7 +21,7 @@ function App() {
 
   const fetchTransactions = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/transactions');
+      const response = await axios.get(`${domain}/api/transactions`);
       setTransactions(response.data);
     } catch (error) {
       console.error('Error fetching transactions:', error);
@@ -34,7 +36,7 @@ function App() {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:5000/api/transactions', formData);
+      await axios.post(`${domain}/api/transactions`, formData);
       fetchTransactions();
       setFormData({
         amount: '',
@@ -49,7 +51,7 @@ function App() {
 
   const fetchDailyReport = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/transactions/daily');
+      const response = await axios.get(`${domain}/api/transactions/daily`);
       setDailyReport(response.data);
     } catch (error) {
       console.error('Error fetching daily report:', error);
@@ -58,7 +60,7 @@ function App() {
 
   const fetchMonthlyReport = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/transactions/monthly');
+      const response = await axios.get(`${domain}/api/transactions/monthly`);
       setMonthlyReport(response.data);
     } catch (error) {
       console.error('Error fetching monthly report:', error);
