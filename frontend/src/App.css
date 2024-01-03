@@ -1,0 +1,81 @@
+.App {
+  text-align: center;
+}
+
+header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.transaction-form,
+.transaction-list,
+.report-section {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 10px 0;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.report-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.report-display {
+  display: flex;
+  gap: 20px;
+
+  > div {
+    flex: 1;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+  }
+}
+
+/* Define styles for the "credit" class */
+.credit {
+  color: green; /* Change the color to your preferred color for credit transactions */
+  font-weight: bold; /* Add any other styling you want for credit transactions */
+}
+
+/* Define styles for the "debit" class */
+.debit {
+  color: red; /* Change the color to your preferred color for debit transactions */
+  font-weight: bold; /* Add any other styling you want for debit transactions */
+}
