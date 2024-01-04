@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import BasicTable from './componenets/Table';
+import DailyBarChart from './componenets/DailyBarChart';
 
 const domain = "https://kirana-store.onrender.com";
 
@@ -125,19 +126,30 @@ function App() {
             <button onClick={fetchDailyReport}>Fetch Daily Report</button>
             <button onClick={fetchMonthlyReport}>Fetch Monthly Report</button>
           </div>
-          {console.log(dailyReport)}
           {
-            dailyReport.length > 0 && <div >
+            dailyReport.length > 0 && <div>
+                <div >
                           <h2>Daily Report</h2>
                           <BasicTable rows={dailyReport} />
-                        </div>
+                </div> 
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}> 
+                    <DailyBarChart data={dailyReport} />
+                </div>
+              
+            </div>
           }
           
           {
             monthlyReport.length > 0 && <div>
-            <h2 style={{margin: '50px'}}> Monthly Report</h2>
-            <BasicTable rows={monthlyReport} />
-          </div>
+            <div>
+                      <h2 style={{margin: '50px'}}> Monthly Report</h2>
+                      <BasicTable rows={monthlyReport} />
+            </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}> 
+                    <DailyBarChart data={monthlyReport} />
+                </div>
+
+            </ div>    
           }
           
           
