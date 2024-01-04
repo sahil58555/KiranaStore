@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+import BasicTable from './componenets/Table';
 
 const domain = "https://kirana-store.onrender.com";
 
@@ -116,14 +117,7 @@ function App() {
 
         <div className="transaction-list">
           <h2>All Transactions</h2>
-          <ul>
-            {transactions.map((transaction) => (
-              <li key={transaction._id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} className={transaction.type}>
-                <span style={{ order: 1 }}>{transaction.amount} INR {transaction.type}</span>
-                <span style={{ order: 2 }}>{transaction.description}</span>
-              </li>         
-            ))}
-          </ul>
+          <BasicTable rows={transactions} />
         </div>
 
         <div className="report-section">
@@ -131,32 +125,22 @@ function App() {
             <button onClick={fetchDailyReport}>Fetch Daily Report</button>
             <button onClick={fetchMonthlyReport}>Fetch Monthly Report</button>
           </div>
-          
+          {console.log(dailyReport)}
           {
             dailyReport.length > 0 && <div >
-            <h2>Daily Report</h2>
-            <ul>
-            {dailyReport.map((entry) => (
-  <li key={entry._id} className={entry.type} style={{ margin: '10px 0' }}>
-    {`${entry.description}: ${entry.amount} ${entry.date}`}
-  </li>
-))}
-            </ul>
-          </div>
+                          <h2>Daily Report</h2>
+                          <BasicTable rows={dailyReport} />
+                        </div>
           }
           
           {
             monthlyReport.length > 0 && <div>
-            <h2>Monthly Report</h2>
-            <ul>
-              {monthlyReport.map((entry) => (
-                <li key={entry._id} className={entry.type}>{`${entry.description}: ${entry.amount}`}</li>
-              ))}
-            </ul>
+            <h2 style={{margin: '50px'}}> Monthly Report</h2>
+            <BasicTable rows={monthlyReport} />
           </div>
           }
           
-    
+          
         </div>
       </main>
     </div>

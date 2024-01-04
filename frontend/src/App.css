@@ -68,14 +68,3 @@ li {
   }
 }
 
-/* Define styles for the "credit" class */
-.credit {
-  color: green; /* Change the color to your preferred color for credit transactions */
-  font-weight: bold; /* Add any other styling you want for credit transactions */
-}
-
-/* Define styles for the "debit" class */
-.debit {
-  color: red; /* Change the color to your preferred color for debit transactions */
-  font-weight: bold; /* Add any other styling you want for debit transactions */
-}
