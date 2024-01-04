@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import BasicTable from './componenets/Table';
 import DailyBarChart from './componenets/DailyBarChart';
+import NavBar from './componenets/NavBar';
 
 const domain = "https://kirana-store.onrender.com";
 
@@ -71,9 +72,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Transaction Manager</h1>
-      </header>
+      <NavBar />
       <main>
         <div className="transaction-form">
           <h2>Add Transaction</h2>
